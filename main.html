@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Safety Portal</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+</head>
+<body>
+    <title>Community Safety Portal</title>
+</head>
+<header class="header">
+  <div class="logo_box">
+    <img src="images/anony.png" alt="Logo" class="logo">
+  </div>
+  <div class="textbox">
+    <h1 class="heading-primary">
+      <span class="heading-primary-main">Your Safety, Our Priority</span>
+      <span class="heading-primary-sub">Uniting for a Safer Community</span>
+    </h1>
+    <a href="#incident" class="btn">Report an Incident</a>
+  </div>
+</header>
+
+<main class="container">
+  <section id="home">
+    <h2>Home</h2>
+    <form id="safetyStatusForm">
+      <label for="datetime">Date</label>
+      <input type="datetime-local" id="datetime" name="datetime" required>
+      <br><br>
+
+      <p>Safety status: The user is safe</p>
+      <label><input type="radio" name="safetyStatus" value="yes"> Yes</label>
+      <label><input type="radio" name="safetyStatus" value="no"> No</label>
+      <br><br>
+
+      <label for="situation">If no, explain the situation</label>
+      <textarea id="situation" name="situation" placeholder="Explain the situation"></textarea>
+    </form>
+  </section>
+
+  <section id="incident">
+    <h2>Report an Incident</h2>
+    <form id="incidentForm" onsubmit="event.preventDefault(); handleIncident();">
+      <label for="incidentType">Type of incident</label>
+      <select id="incidentType" name="incidentType" required>
+        <option value="suspicious activity">Suspicious Activity</option>
+        <option value="fire">Fire</option>
+        <option value="medical emergency">Medical Emergency</option>
+        <option value="theft">Theft</option>
+        <option value="others">Others</option>
+      </select>
+      <br><br>
+
+      <label for="description">Event</label>
+      <div>
+        <input type="text" id="description" placeholder="What's happening near you">
+        <img src="images/mic.png" alt="Start Recording" class="icon" onclick="startVoiceInput()">
+      </div>
+      <br><br>
+
+      <label for="file">Upload an image</label>
+      <div>
+        <input type="file" id="file">
+        <img src="image/camera.jpg" alt="Capture Image" class="icon" onclick="startCamera()">
+        <video id="cameraPreview" autoplay style="display: none"></video>
+        <canvas id="capturedImage" style="display: none"></canvas>
+      </div>
+      <br><br>
+
+      <a href="tel:+2347036772284" class="quick-dial">Call Emergency</a>
+      <br><br>
+
+      <label for="address">Incident Location</label>
+      <input type="text" id="address" name="address" placeholder="e.g., Ziks Avenue, Awka" required>
+      <button type="submit">Search</button>
+
+      <div id="map" class="map"></div>
+    </form>
+  </section>
+
+  <section id="safety-tips">
+    <h2>Safety Tips</h2>
+    <h2>SAFETY TIPS</h2>
+    <h5>Here are some simple safety tips you should not overlook</h5>
+    <ul>
+      <li>
+        Be Aware of Your Surroundings: Whether you’re walking in a parking lot
+        or on the street, staying aware of your surroundings can help you
+        avoid potential dangers.
+      </li>
+      <li>
+        Lock Your Doors and Windows: Always ensure that your doors and windows
+        are locked, even when you're home.
+      </li>
+      <li>
+        Keep Emergency Contacts Handy: Save emergency numbers in your phone
+        and have a physical list somewhere accessible at home.
+      </li>
+      <li>
+        Make Sure You Have a Working Fire Extinguisher in Your Home in case of
+        any fire outbreak.
+      </li>
+      <li>
+        Don’t Share Too Much Online: Be cautious about sharing personal
+        information on social media, as it can be used against you or lead to
+        unwanted attention.
+      </li>
+      <li>
+        Know Your Exits: Familiarize yourself with the exits of any building
+        you enter, including restaurants, theaters, and offices, in case of an
+        emergency.
+      </li>
+      <li>
+        Avoid Distracted Driving: Put your phone away and minimize
+        distractions while driving to reduce the risk of accidents.
+      </li>
+      <li>
+        Be Cautious with Personal Items: Keep your belongings close,
+        especially in crowded places. Use a crossbody bag to deter
+        pickpockets.
+      </li>
+      <li>
+        Use Proper Lighting: Ensure that your home and outdoor areas are
+        well-lit, especially entryways, to deter intruders and make it safer
+        to navigate at night.
+      </li>
+      <li>
+        Trust Your Instincts: If a situation feels off or uncomfortable, trust
+        your instincts and remove yourself from it if possible
+      </li>
+    </ul>
+
+    <button class="btn">
+      <a href="https://www.report-it.org.uk/personal_safety_tips">More tips</a>
+    </button>
+  </section>
+
+  <section id="community-forum">
+    <h2>Community Forum</h2>
+    <p>Coming soon...</p>
+  </section>
+
+  <section id="emergency-contact">
+    <h2>Emergency Contacts</h2>
+    <H3>Some Emergency Phone Numbers in Nigeria</H3>
+    <ul>
+      <li> Emergency Response Africa - 0800 0255 5375 </li>
+      <li>The Fire Emergency Number – 01-7944929</li>
+      <li> Rape Helpline - 080072732255</li>
+      <li> Federal Road Safety Corps (FRSC) - 07002255372 or 122</li>
+      <li>Nigerian Red Cross Society (NRCS) - 08023200270 </li>
+      <li> Nigerian Army Human Rights - 08160134303 or 08161507644</li>
+    </ul>
+    <button class="btn">
+      <a href="https://emergencyresponseafrica.com/nigeria-emergency-number/">Click for More</a>
+    </button>
+  </section>
+</main>
+
+<footer class="footer">
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#incident">Report Incident</a>
+    <a href="#safety-tips">Safety Tips</a>
+    <a href="#community-forum">Forum</a>
+    <a href="#emergency-contact">Emergency Contacts</a>
+  </nav>
+  <p>&copy; 2024 Community Safety Portal. All rights reserved.</p>
+</footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

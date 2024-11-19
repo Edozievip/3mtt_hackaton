@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .logo {
+    width: 80px;
+  }
+  
+  .textbox {
+    margin: 20px 0;
+  }
+  
+  .btn {
+    background: #e74c3c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  form label {
+    font-weight: bold;
+  }
+  
+  form input,
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .icon {
+    cursor: pointer;
+    width: 30px;
+  }
+  
+  .quick-dial {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .map {
+    width: 100%;
+    height: 500px;
+    background: #ecf0f1;
+    border: 1px solid #bdc3c7;
+  }
+  
+  .footer {
+    text-align: center;
+    background: #34495e;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  .footer nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* General styling for the camera preview */
+  #cameraPreview {
+    width: 100%; /* Default to full width of the container */
+    max-width: 480px; /* Limit the size for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px auto; /* Center on the page */
+    border: 2px solid #ccc; /* Add a border for visibility */
+    border-radius: 8px;
+    display: none; /* Initially hidden */
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 768px) {
+    #cameraPreview {
+      width: 70%; /* Full width for mobile devices */
+      height: auto; /* Maintain aspect ratio */
+    }
+  }
+  @media (min-width: 800px) {
+    #startCameraButton {
+      display: none; /* Hide button on large screens */
+    }
+  }
+  
+  /* Canvas for captured images */
+  #capturedImage {
+    width: 100%; /* Same behavior as the video */
+    max-width: 480px;
+    height: auto;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: none;
+  }
+  
